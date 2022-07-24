@@ -1,0 +1,192 @@
+.myspinner {
+    width: 150px;
+    height: 150px;
+    margin-left: 650px;
+    margin-top: 60px;
+    margin-bottom: 550px;
+}
+
+.ticker-name {
+    font-size: 34px;
+    color: rgb(54, 54, 54);
+    margin-bottom: 18px;
+    margin-top: 18px;
+}
+
+.company-name {
+    color: rgb(112, 126, 125);
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: -10px;
+}
+
+.exchange-code {
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.stock-last-price {
+    font-size: 35px;
+    margin-bottom: 8px;
+    margin-top: 25px;
+}
+
+.stock-change {
+    font-size: 25px;
+    margin-bottom: 8px;
+    margin-top: 20px;
+}
+
+.current-date {
+    font-size: 15px;
+    color: rgb(112, 126, 125);
+    margin-top: 15px;
+}
+
+.buy-button {
+    margin-top: 7px;
+    width: 13%;
+}
+
+.color-red {
+    color: rgb(250, 19, 0);
+}
+
+.color-green {
+    color: rgb(37, 125, 0);
+}
+
+.market-status {
+    justify-content: space-around;
+    text-align: center;
+    display: flex;
+}
+
+.example-stretched-tabs {
+    max-width: 1250px;
+    min-height: 470px;
+    margin-top: 20px;
+    overflow: auto;
+}
+
+.myheading-row {
+    margin-top: 15px;
+}
+
+.article-root {
+    margin-top: 20px;
+}
+
+.my-article {
+    max-width: 500px;
+    margin-left: 50px;
+    background-color: #F9F9F9;
+    margin-bottom: 15px;
+    border: solid 1px #00F0F0;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.article-source {
+    font-size: 30px;
+    width: 380px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.article-date {
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #999999;
+}
+
+.article-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.article-href {
+    color: #888888;
+    margin-top: 5px;
+}
+
+.social-icons {
+    border: 1px solid #CCCCCC;
+    margin: 1px;
+}
+
+.summary-row {
+    margin-bottom: 40px;
+}
+
+.sub-summary-container {
+    padding: 40px;
+}
+
+.detail-desc-container {
+    margin-left: 15px;
+    padding-left: 40px;
+    padding-right: 30px;
+}
+
+.company-desc-label {
+    font-size: 20px;
+    margin-left: 115px;
+    font-weight: 500;
+}
+
+.company-start-date-area {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.summary-fixed-label {
+    float: left;
+    width: 80px;
+}
+
+.watchlist-add-alert {
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+}
+
+.watchlist-remove-alert {
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+}
+
+.buy-alert {
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+}
+
+.buy-popup-footer {
+    width: 1000px;
+}
+
+.stock-ticker-buy-popup {
+    font-size: 20px;
+    width: 380px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.quantity-label {
+    margin-right: 5px;
+}
+
+.current-price-popup {
+    margin-left: 1px;
+    margin-bottom: 4px;
+}
+
+.total-cost {
+    float: left;
+}
+
+.popup-buy-button {
+    float: right;
+}

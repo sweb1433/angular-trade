@@ -1,0 +1,113 @@
+.portfolio-main-container {
+    min-height: 660px;
+    display: table;
+    margin-bottom: 30px;
+}
+
+.myspinner {
+    width: 150px;
+    height: 150px;
+    margin-left: 650px;
+    margin-top: 60px;
+    margin-bottom: 550px;
+}
+
+.portfolio-header {
+    font-size: 50px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    margin-left: 1px;
+}
+
+.no-portfolio-msg {
+    margin-top: 60px;
+    text-align: center;
+    display: block;
+}
+
+.portfolio-card-header {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.portfolio-card-title {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.portfolio-card-name {
+    margin-left: 15px;
+    font-size: 20px;
+    color: #777777;
+    font-weight: 500;
+}
+
+.portfolio-card-label {
+    font-size: 20px;
+    padding: 3px;
+    margin-left: 1px;
+}
+
+.portfolio-card-value {
+    font-size: 20px;
+    padding: 3px;
+    display: grid;
+    margin-right: 10px;
+}
+
+.portfolio-card-buttons {
+    text-align: right;
+}
+
+.buy-button {
+    width: 70px;
+}
+
+.sell-button {
+    margin-left: 20px;
+    width: 70px;
+}
+
+.stock-ticker-popup {
+    font-size: 20px;
+    width: 380px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.current-price-popup {
+    margin-left: 1px;
+    margin-bottom: 4px;
+}
+
+.quantity-label {
+    margin-right: 5px;
+}
+
+.my-popup-footer {
+    width: 1000px;
+}
+
+.total-cost {
+    float: left;
+}
+
+.my-popup-button {
+    float: right;
+}
+
+.portfolio-change-area {
+    display: inline;
+}
+
+.my-green-color {
+    color: rgb(37, 125, 0);
+}
+
+.my-red-color {
+    color: rgb(250, 19, 0);
+}
+
+.my-card-container {
+    margin-top: 15px;
+}

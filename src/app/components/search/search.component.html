@@ -1,0 +1,22 @@
+<div class="search-container">
+    <div>
+        <h1 id="stock-heading">STOCK SEARCH</h1>
+    </div>
+    <div id="stock-search-container">
+        <form class="stock-search-form">
+            <div class="input-group">
+                <input name="inputTicker" class="form-control py-2 rounded-pill mr-n2 pr-5" type="search" placeholder="Enter stock name" aria-label="String" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <span class="input-group-append">
+                    <button type="button" (click)="tickerDetails()" class="input-group-append btn rounded-pill border-0 ml-n5">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option *ngFor="let option of options" [value]="option">
+                    <span id="search-option-ticker">{{option.ticker}}</span> | <span id="search-option-name">{{option.name}}</span>
+                </mat-option>
+            </mat-autocomplete>
+        </form>
+    </div>
+</div>

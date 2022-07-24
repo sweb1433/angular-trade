@@ -1,0 +1,64 @@
+.stock-search-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 90%;
+}
+
+#search-option-ticker {
+    font-size: 15px;
+}
+
+#search-option-name {
+    font-size: 12px;
+}
+
+.search-container {
+    top: 50%;
+    left: 50%;
+    margin-top: 10%;
+    margin-left: 30%;
+    width: 800px;
+    height: 565px;
+}
+
+@font-face {
+    font-family: StockHeadingFont;
+    src: url("NovelSansPro_ExtraBold.otf") format("opentype");
+}
+
+#stock-heading {
+    font-weight: 1000;
+    font-size: 500%;
+    font-family: StockHeadingFont;
+}
+
+input:focus {
+    box-shadow: none;
+}
+
+input:focus~.input-group-append {
+    z-index: 3;
+}
+
+.fa-search {
+    color: #6F4FFB;
+    margin-top: 3px;
+    margin-left: 10px;
+}
+
+input[type="search"] {
+    border: 2px solid #6F4FFB;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+#stock-search-container {
+    margin-top: 7%;
+    margin-left: 18%;
+    width: 35%;
+}

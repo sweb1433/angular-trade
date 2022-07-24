@@ -1,0 +1,152 @@
+<mat-spinner [diameter]="100" *ngIf="showSpinner" class="myspinner">
+</mat-spinner>
+<div *ngIf="!showSpinner" class="mx-auto">
+    <div class="container portfolio-main-container">
+        <div class="row portfolio-header">My Portfolio</div>
+        <div *ngIf="noPortfolio" class="row alert alert-warning no-portfolio-msg" role="alert">Currently you don't have any stock.</div>
+        <div *ngIf="!noPortfolio" class="portfolio-cards">
+            <div *ngFor="let portfolioModel of portfolioModels">
+                <div class="card my-card-container">
+                    <div class="card-header portfolio-card-header" (click)="navigateToDetailsPage(portfolioModel.ticker);">
+                        <span class="card-title portfolio-card-title">{{portfolioModel.ticker}}</span>
+                        <span class="portfolio-card-name">{{portfolioModel.companyName}}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col text-left">
+                                            <div class="row portfolio-card-label">Quantity:</div>
+                                            <div class="row portfolio-card-label">Avg. Cost / Share:</div>
+                                            <div class="row portfolio-card-label">Total Cost:</div>
+                                        </div>
+                                        <div class="col text-right">
+                                            <div class="row portfolio-card-value">{{portfolioModel.quantity}}</div>
+                                            <div class="row portfolio-card-value">{{portfolioModel.avgCostPerShareStr}}</div>
+                                            <div class="row portfolio-card-value">{{portfolioModel.totalCostStr}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col text-left">
+                                            <div class="row portfolio-card-label">Change:</div>
+                                            <div class="row portfolio-card-label">Current Price:</div>
+                                            <div class="row portfolio-card-label">Market Value:</div>
+                                        </div>
+                                        <div *ngIf="!portfolioModel.changed" class="col text-right">
+                                            <div class="row portfolio-card-value">{{portfolioModel.changeStr}}</div>
+                                            <div class="row portfolio-card-value">{{portfolioModel.currentPrice}}</div>
+                                            <div class="row portfolio-card-value">{{portfolioModel.marketValueStr}}</div>
+                                        </div>
+                                        <div *ngIf="portfolioModel.changed" class="col text-right">
+                                            <div *ngIf="portfolioModel.isPositive" class="my-green-color">
+                                                <div class="row portfolio-card-value portfolio-change-area">
+                                                    <span>
+                                                        <svg width="1em" height="20px" viewBox="0 0 16 16" class="bi bi-caret-up-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                                                        </svg>
+                                                    </span> {{portfolioModel.changeStr}}
+                                                </div>
+                                                <div class="row portfolio-card-value">{{portfolioModel.currentPrice}}</div>
+                                                <div class="row portfolio-card-value">{{portfolioModel.marketValueStr}}</div>
+                                            </div>
+                                            <div *ngIf="!portfolioModel.isPositive" class="my-red-color">
+                                                <div class="row portfolio-card-value portfolio-change-area">
+                                                    <span>
+                                                        <svg width="1em" height="20px" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                                        </svg>
+                                                    </span> {{portfolioModel.changeStr}}
+                                                </div>
+                                                <div class="row portfolio-card-value">{{portfolioModel.currentPrice}}</div>
+                                                <div class="row portfolio-card-value">{{portfolioModel.marketValueStr}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer portfolio-card-buttons">
+                        <a class="btn btn-primary buy-button" (click)="open(buystockmodal);buystockpopup(portfolioModel.ticker, portfolioModel.currentPrice, portfolioModel.companyName);">Buy</a>
+                        <a class="btn btn-danger sell-button" (click)="open(sellstockmodal);sellstockpopup(portfolioModel.ticker, portfolioModel.currentPrice, portfolioModel.quantity, portfolioModel.companyName);">Sell</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #buystockmodal let-modal>
+    <div class="modal-header">
+        <div class="row">
+            <div class="col">
+                <div class="row stock-ticker-popup">{{buyStockTicker}}</div>
+            </div>
+            <div class="col">
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <div class="row current-price-popup">Current Price: {{buyStockCurrentPriceStr}}</div>
+            <form>
+                <div class="form-group form-inline">
+                    <label for="popup-quantity" class="quantity-label">Quantity</label>
+                    <input ngbAutofocus id="popup-quantity" class="form-control" name="popup-quantity" type="number" min="0" step="1" value="0" [formControl]="buyControl" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row my-popup-footer">
+            <div class="col total-cost">
+                <span>Total : {{buyTotalStr}}</span>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-success my-popup-button" [disabled]="!stockbuyable" (click)="buystock();modal.dismiss('Bought')">Buy</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #sellstockmodal let-modal>
+    <div class="modal-header">
+        <div class="row">
+            <div class="col">
+                <div class="row stock-ticker-popup">{{sellStockTicker}}</div>
+            </div>
+            <div class="col">
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <div class="row current-price-popup">Current Price: {{sellStockCurrentPriceStr}}</div>
+            <form>
+                <div class="form-group form-inline">
+                    <label for="popup-quantity" class="quantity-label">Quantity</label>
+                    <input ngbAutofocus id="popup-quantity" class="form-control" name="popup-quantity" type="number" min="0" step="1" value="0" [formControl]="sellControl" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row my-popup-footer">
+            <div class="col total-cost">
+                <span>Total : {{sellTotalStr}}</span>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-success my-popup-button" [disabled]="!stockSellable" (click)="sellstock();modal.dismiss('Sold')">Sell</button>
+            </div>
+        </div>
+    </div>
+</ng-template>

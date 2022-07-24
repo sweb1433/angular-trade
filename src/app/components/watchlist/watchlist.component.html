@@ -1,0 +1,37 @@
+<div class="mx-auto">
+    <div class="container">
+        <div class="row watchlist-header">My Watchlist</div>
+        <div *ngIf="noWatchlist" class="row alert alert-warning no-watchlist-msg" role="alert">Currently you don't have any stock in your watchlist</div>
+        <div *ngFor="let watchlistModel of watchlistModels">
+            <div class="row watchlist-element" [id]="watchlistModel.stockTickerSymbol" (click)="navigateToDetailsPage(watchlistModel.stockTickerSymbol);">
+                <div class="col text-left">
+                    <div class="row watchlist-ticker">{{watchlistModel.stockTickerSymbol}}</div>
+                    <div class="row watchlist-full-name">{{watchlistModel.companyName}}</div>
+                </div>
+                <div class="col text-right">
+                    <button type="button" class="close watchlist-cross" aria-label="Close" (click)="remove($event, watchlistModel.stockTickerSymbol);">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div *ngIf="watchlistModel.isChanged" class="row watchlist-last" [ngClass]="{'color-red': !watchlistModel.isPositive, 'color-green': watchlistModel.isPositive}">{{watchlistModel.lastPrice}}</div>
+                    <div *ngIf="!watchlistModel.isChanged" class="row watchlist-last">{{watchlistModel.lastPrice}}</div>
+                    <div *ngIf="watchlistModel.isChanged" class="row watchlist-change-container" [ngClass]="{'color-red': !watchlistModel.isPositive, 'color-green': watchlistModel.isPositive}">
+                        <span>
+                            <svg *ngIf="watchlistModel.isPositive" width="1em" height="15px" viewBox="0 0 16 16" class="bi bi-caret-up-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                            </svg>
+                            <svg *ngIf="!watchlistModel.isPositive" width="1em" height="15px" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                            </svg>
+                        </span>
+                        <span class="change-val">{{watchlistModel.changeStr}}</span>
+                        <span class="change-percentage">({{watchlistModel.changePercentageStr}}%)</span>
+                    </div>
+                    <div *ngIf="!watchlistModel.isChanged" class="row">
+                        <span class="change-val">{{watchlistModel.changeStr}}</span>
+                        <span class="change-percentage">({{watchlistModel.changePercentageStr}}%)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

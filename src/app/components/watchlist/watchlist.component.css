@@ -1,0 +1,81 @@
+.container {
+    min-height: 660px;
+    display: table;
+    margin-bottom: 30px;
+}
+
+.watchlist-header {
+    font-size: 50px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.no-watchlist-msg {
+    margin-top: 60px;
+    text-align: center;
+    display: block;
+}
+
+.watchlist-element {
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.watchlist-ticker {
+    font-size: 35px;
+    padding: 15px;
+    font-weight: 500;
+}
+
+.watchlist-full-name {
+    padding: 15px;
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+.watchlist-cross {
+    margin-right: -20px;
+    margin-top: -10px;
+    z-index: 2;
+    position: relative;
+}
+
+.watchlist-last {
+    text-align: right;
+    font-size: 25px;
+    padding-top: 15px;
+    padding-right: 15px;
+    margin-top: 5px;
+    padding-bottom: 10px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.watchlist-change-container {
+    text-align: right;
+    font-size: 25px;
+    display: block;
+    margin-right: 10px;
+}
+
+.change-val {
+    padding-right: 10px;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.change-percentage {
+    padding-right: 10px;
+    font-size: 15px;
+}
+
+.color-red {
+    color: rgb(250, 19, 0);
+}
+
+.color-green {
+    color: rgb(37, 125, 0);
+}
